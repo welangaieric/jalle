@@ -55,6 +55,29 @@ let preloader = $('#preloader');
     // Call the function with the selector class of the elements you want to animate
     addAnimation("content");
     addAnimation("container");
+    $.ajax({
+      type: 'GET',
+      url: '../product.json',
+      success: function(result) {
+        let display = $('.products')
+        result.forEach((item)=>{
+          let temp=`<div class="product d-flex center fd-col">
+                        <div class="product-image d-flex center ">
+                            <img src=${item.image} alt=${JSON.stringify(item.name)}>
+                        </div>
+                        <div class="product-price d-flex center ">
+                            <p class="d-flex center">Ksh.${item.price}/=</p>
+                        </div>
+                        <div class="product-desc d-flex left g-1 fd-col">
+                            <h3>${item.name}</h3>
+                            <p>${item.description}</p>
+                            <a href="/details.html?item=${item.name}">Order Now</a>
+                        </div>
+                    </div>`
+            display.append(temp)
+        })
+      }
+    })
 
   });
   

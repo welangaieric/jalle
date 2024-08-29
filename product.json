@@ -1,58 +1,73 @@
 [
     {
+        
         "image": "./IMAGES/gen2.png",
-        "price": "Ksh.8000/=",
+        "price": "18000",
         "name": "Ubiquiti PowerBeam ac PBE-5AC-GEN2",
-        "description": "Wireless Reciever/Transmitter",
+        "description": "Wireless Access Point",
         "order_link": ""
       },
       {
         "image": "./IMAGES/tendaf6.png",
-        "price": "Ksh.1800/=",
+        "price": "2000",
         "name": "Wireless router Tenda F3",
         "description": "Wireless Router",
         "order_link": ""
       },
       {
         "image": "./IMAGES/LOCOM5.png",
-        "price": "Ksh.8000/=",
+        "price": "10500",
         "name": "Ubiquiti NanoStation locoM5",
         "description": "Wireless Access Points",
         "order_link": ""
       },
       {
         "image": "./IMAGES/loco-m2.png",
-        "price": "Ksh.4500/=",
+        "price": "8000",
         "name": "Ubiquiti NanoStation locoM2",
         "description": "Wireless Access Point",
         "order_link": ""
       },
       {
-        "image": "./IMAGES/M5.png",
-        "price": "Ksh.4500/=",
-        "name": "Ubiquiti NanoStation M5N5",
-        "description": "Wireless Access Point Points Power over Ethernet Bridging",
-        "order_link": ""
-      },
-      {
         "image": "./IMAGES/LIGHTBEAM-M5.png",
-        "price": "Ksh.4500/=",
-        "name": "Ubiquiti LiteBeam ac LBE-5AC-23",
+        "price": "7500",
+        "name": "Ubiquiti LiteBeam M5",
         "description": "Wireless Access Point",
         "order_link": ""
       },
       {
         "image": "./IMAGES/tp-link.png",
-        "price": "Ksh.2000/=",
-        "name": "TP-LINK TL-WR840N",
+        "price": "4000",
+        "name": "TP-LINK",
         "description": "Wireless router",
         "order_link": ""
       },
       {
         "image": "./IMAGES/mesh.png",
-        "price": "Ksh.6000/=",
+        "price": "18500",
         "name": "Ubiquiti Networks UniFi AC Mesh AP",
         "description": "Wireless Access Points",
+        "order_link": ""
+      },
+      {
+        "image": "./IMAGES/rj45.png",
+        "price": "10",
+        "name": "RJ45",
+        "description": "Connectors",
+        "order_link": ""
+      },
+      {
+        "image": "./IMAGES/cat6.png",
+        "price": "10000",
+        "name": "UTP CAT6",
+        "description": "Gigalan outdoor utp cat6",
+        "order_link": ""
+      },
+      {
+        "image": "./IMAGES/crimping.png",
+        "price": "1500",
+        "name": "Crimping Tool",
+        "description": "RJ45 Crimping Tool",
         "order_link": ""
       }
     
