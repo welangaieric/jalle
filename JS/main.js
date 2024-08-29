@@ -57,7 +57,7 @@ let preloader = $('#preloader');
     addAnimation("container");
     $.ajax({
       type: 'GET',
-      url: '../product.json',
+      url: 'https://welangaieric.github.io/jalle/product.json',
       success: function(result) {
         let display = $('.products')
         result.forEach((item)=>{
