@@ -1,0 +1,60 @@
+[
+    {
+        "image": "./IMAGES/gen2.png",
+        "price": "Ksh.8000/=",
+        "name": "Ubiquiti PowerBeam ac PBE-5AC-GEN2",
+        "description": "Wireless Reciever/Transmitter",
+        "order_link": ""
+      },
+      {
+        "image": "./IMAGES/tendaf6.png",
+        "price": "Ksh.1800/=",
+        "name": "Wireless router Tenda F3",
+        "description": "Wireless Router",
+        "order_link": ""
+      },
+      {
+        "image": "./IMAGES/LOCOM5.png",
+        "price": "Ksh.8000/=",
+        "name": "Ubiquiti NanoStation locoM5",
+        "description": "Wireless Access Points",
+        "order_link": ""
+      },
+      {
+        "image": "./IMAGES/loco-m2.png",
+        "price": "Ksh.4500/=",
+        "name": "Ubiquiti NanoStation locoM2",
+        "description": "Wireless Access Point",
+        "order_link": ""
+      },
+      {
+        "image": "./IMAGES/M5.png",
+        "price": "Ksh.4500/=",
+        "name": "Ubiquiti NanoStation M5N5",
+        "description": "Wireless Access Point Points Power over Ethernet Bridging",
+        "order_link": ""
+      },
+      {
+        "image": "./IMAGES/LIGHTBEAM-M5.png",
+        "price": "Ksh.4500/=",
+        "name": "Ubiquiti LiteBeam ac LBE-5AC-23",
+        "description": "Wireless Access Point",
+        "order_link": ""
+      },
+      {
+        "image": "./IMAGES/tp-link.png",
+        "price": "Ksh.2000/=",
+        "name": "TP-LINK TL-WR840N",
+        "description": "Wireless router",
+        "order_link": ""
+      },
+      {
+        "image": "./IMAGES/mesh.png",
+        "price": "Ksh.6000/=",
+        "name": "Ubiquiti Networks UniFi AC Mesh AP",
+        "description": "Wireless Access Points",
+        "order_link": ""
+      }
+    
+    ]
+  
