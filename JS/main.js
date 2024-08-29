@@ -71,7 +71,7 @@ let preloader = $('#preloader');
                         <div class="product-desc d-flex left g-1 fd-col">
                             <h3>${item.name}</h3>
                             <p>${item.description}</p>
-                            <a href="../details.html?item=${item.name}">Order Now</a>
+                            <a href="/jalle/details.html?item=${item.name}">Order Now</a>
                         </div>
                     </div>`
             display.append(temp)
