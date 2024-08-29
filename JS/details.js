@@ -42,6 +42,16 @@ document.addEventListener("DOMContentLoaded", function () {
     fetchData(itemName)
         .then((product) => {
             console.log(product); 
+            let display = $('#checkout')
+            let temp = `<div class="checkout d-flex center fd-col">
+                            <div class="checkout-header d-flex center">
+                                <img src=${product.image} alt=${JSON.stringify(product.name)}>
+                            </div>
+                            <div class="checkout-body d-flex">
+
+                            </div>
+                        </div>`
+            display.html(temp)
             // Additional code to handle the product, e.g., display on the page
         })
         .catch((err) => {
