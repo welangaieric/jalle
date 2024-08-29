@@ -692,21 +692,32 @@ footer h5{
 .checkout-header{
     width: 100%;
     height: 40vh;
+    /* background-color: var(--white); */
+    border-radius: 8px;
+    padding: 20px;
 }
 .checkout-body{
     width: 100%;
     min-height: 50vh;
 }
+
 .checkout-header img{
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
+.strain{
+    flex-direction: row !important;
+}
 @media screen and (min-width:768px) {
     .checkout{
         flex-direction: row !important;
     }
-    .checkout-header,.checkout-body{
+    .checkout-header{
+        width: 47%;
+        height: 50vh;
+    }
+    .checkout-body{
         width: 47%;
     }
     .sales{
