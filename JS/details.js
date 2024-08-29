@@ -51,18 +51,18 @@ document.addEventListener("DOMContentLoaded", function () {
                             <div class="checkout-header d-flex center">
                                 <img src=${product.image} alt=${JSON.stringify(product.name)}>
                             </div>
-                             <div class="checkout-body jcs aic g-1 d-flex fd-col ">
+                             <div class="checkout-body jcs aic g-2 d-flex fd-col ">
                                
                                 <div class="row strain d-flex left g-1">
-                                    <h3>Name:</h3>
+                                    <h3 class="blue">Name:</h3>
                                     <p>${product.name}</p>
                                 </div>
                                 <div class="row strain d-flex left g-1">
-                                    <h3>Description:</h3>
+                                    <h3 class="blue">Description:</h3>
                                     <p>${product.description}</p>
                                 </div>
                                 <div class="row strain d-flex left g-1">
-                                    <h3>Price:</h3>
+                                    <h3 class="blue">Price:</h3>
                                     <p>${product.price}</p>
                                 </div>
 

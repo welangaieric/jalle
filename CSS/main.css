@@ -699,6 +699,9 @@ footer h5{
 .checkout-body{
     width: 100%;
     min-height: 50vh;
+    border-top: 1px solid var(--light-grey);
+    padding:20px 0 0 0 ;
+
 }
 
 .checkout-header img{
@@ -719,6 +722,8 @@ footer h5{
     }
     .checkout-body{
         width: 47%;
+        border: none;
+        padding: 0;
     }
     .sales{
         flex-direction: row;
