@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (itemName) {
                 $.ajax({
                     type: 'GET',
-                    url: '../product.json',
+                    url: 'https://welangaieric.github.io/jalle/product.json',
                     success: function(result) {
                         
                         if (Array.isArray(result)) {
