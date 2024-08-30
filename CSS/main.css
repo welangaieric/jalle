@@ -732,6 +732,9 @@ footer h5{
 #price{
     width: 20%;
     border: none;
+    text-align: right;
+    font-size: 1.5rem;
+    color: var(--blue);
 }
 .form__group input, .form__group textarea {
     width: 100%;
