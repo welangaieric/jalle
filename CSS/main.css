@@ -717,6 +717,10 @@ footer h5{
     padding: 20px 0;
 
 }
+#shipping-form btn{
+    height:50px;
+
+}
 .form__group {
     position: relative;
     /* margin-bottom: 20px; */
