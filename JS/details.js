@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                         
                                     </div>
 
-                                    <button type="submit">Submit</button>
+                                    <button type="submit" class="btn submit">Submit</button>
                                 </form>
 
                             </div>
