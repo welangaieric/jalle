@@ -8,14 +8,15 @@
     </head>
 <body>
     <section id="checkout" class="d-flex center  fd-col">
+        <div class="row d-flex center">
+            <h2>Product Details</h2>
+        </div>
         <div class="checkout d-flex fd-col">
             <div class="checkout-header d-flex center">
                 <img src="" alt="">
             </div>
             <div class="checkout-body jcs aic g-1 d-flex fd-col ">
-                <div class="row d-flex center">
-                    <h2>Product Details</h2>
-                </div>
+               
                 <div class="row d-flex left">
                     <h3>Name:</h3>
                     <p></p>
@@ -28,6 +29,45 @@
                     <h3>Price:</h3>
                     <p></p>
                 </div>
+                <form id="shipping-form" class='d-flex fd-col center g-2'>
+                    <div class="form__group">
+                        <input type="text" id="name" name="name" required placeholder=" ">
+                        <label for="name">Name</label>
+                    </div>
+            
+                    <div class="form-group">
+                        <input type="radio" id="pickup" name="shippingMethod" value="pickup" required>
+                        <label for="pickup">Pick Up</label>
+                        <input type="radio" id="delivery" name="shippingMethod" value="delivery">
+                        <label for="delivery">Delivery</label>
+                    </div>
+            
+                    <div class="form__group">
+                        <input type="text" id="phone" name="phone" required placeholder=" ">
+                        <label for="phone">Phone</label>
+                    </div>
+            
+                    <div class="form__group">
+                        <input type="text" id="location" name="location" required placeholder=" ">
+                        <label for="location">Location</label>
+                    </div>
+            
+                    <div class="form__group">
+                        <textarea id="additional-info" name="additionalInfo" placeholder=" "></textarea>
+                        <label for="additional-info">Additional Information</label>
+                    </div>
+            
+                    <div class="form__group">
+                        <div class="quantity-container">
+                            <button type="button" onclick="updateQuantity(-1)">-</button>
+                            <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+                            <button type="button" onclick="updateQuantity(1)">+</button>
+                        </div>
+                        <label for="quantity">Quantity</label>
+                    </div>
+            
+                    <button type="submit">Submit</button>
+                </form>
 
             </div>
         </div>
