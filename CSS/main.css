@@ -810,7 +810,7 @@ footer h5{
     color:var(--white);
 }
 .quantity-container input {
-    width: 100px;
+    width: 70px;
     text-align: center;
     font-size: 18px;
     height: 100%;
