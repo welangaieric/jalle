@@ -44,7 +44,7 @@ a{
 }
 .right{
     justify-content: flex-end !important;
-    align-items: center !important;
+    align-items: flex-end !important;
 }
 .space-between{
     justify-content: space-between !important;
@@ -726,11 +726,14 @@ footer h5{
     flex-direction: row !important;
     display: flex;
 }
-.price-section .quantity-container{
+.price-container .quantity-container{
     width: 50%;
 }
+.price-container{
+
+}
 #price{
-    width: 20%;
+    min-width: 10%;
     border: none;
     text-align: right;
     font-size: 1.5rem;

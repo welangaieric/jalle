@@ -99,7 +99,10 @@ document.addEventListener("DOMContentLoaded", function () {
                                             <input type="number" id="quantity" name="quantity" value="1" min="1" required>
                                             <button type="button" onclick="updateQuantity(1)">+</button>
                                         </div>
-                                        <input type="number" readonly id="price" name="price" value=${product.price}  required>
+                                        <div class="price-container d-flex right">
+                                            <p>ksh.</p>
+                                            <input type="number" readonly id="price" name="price" value=${product.price}  required>
+                                        </div>
                                         
                                     </div>
 
