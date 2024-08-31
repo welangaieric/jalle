@@ -136,15 +136,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 const phone = $('#phone');
                 const buyButton = $('#buy');
                 const phoneNumber = phone.val();
-                const payload = $('#Shipping-form').serialize()  
+               
                 console.log(payload)                
                 if (!numberRegex.test(phoneNumber)) {
                     phone.addClass('error');
                     showSnackbar(`Invalid phone number`);
                 }
                 else{
-                    $('#Shipping-form').on('submit',(e)=>{
+                    $('#Shipping-form').on('submit',function(e){
                         e.preventDefault()
+                         const payload = $(this).serialize()  
                         makePurchase(payload)
 
                     })
