@@ -59,13 +59,13 @@
             
                     <div class="form__group">
                         <div class="quantity-container">
-                            <button type="button" onclick="updateQuantity(-1)">-</button>
+                            <button type="button" class="quantity-control" id="sub">-</button>
                             <input type="number" id="quantity" name="quantity" value="1" min="1" required>
-                            <button type="button" onclick="updateQuantity(1)">+</button>
+                            <button type="button" class="quantity-control" id="add">+</button>
                         </div>
                         <label for="quantity">Quantity</label>
                     </div>
-            
+                   
                     <button type="submit">Submit</button>
                 </form>
 

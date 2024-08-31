@@ -712,6 +712,9 @@ footer h5{
 .strain{
     flex-direction: row !important;
 }
+.strain p{
+    height: 100%;
+}
 #shipping-form{
     width:100%;
     padding: 20px 0;
@@ -723,6 +726,12 @@ footer h5{
     
 
 }
+.quantity-control{
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+
+}
 .form__group {
     position: relative;
     /* margin-bottom: 20px; */
@@ -731,6 +740,7 @@ footer h5{
 .price-section{
     flex-direction: row !important;
     display: flex;
+    height: 50px;
 }
 .price-container .quantity-container{
     width: 50%;
@@ -738,12 +748,24 @@ footer h5{
 .price-container{
 
 }
+.place-order{
+    height: 50px;
+    border-radius: 8px;
+}
 #price{
-    min-width: 10%;
+    width: 35%;
     border: none;
-    text-align: right;
+    text-align: left;
     font-size: 1.5rem;
-    color: var(--blue);
+    padding: 0;
+    height: 100%;
+   
+}
+.display-info{
+    height: 100%;
+    width: 50%;
+    align-items: center;
+    justify-content: flex-end;
 }
 .form__group input, .form__group textarea {
     width: 100%;

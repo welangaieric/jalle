@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </div>
                                 <div class="row strain d-flex left g-1">
                                     <h3 class="blue">Price:</h3>
-                                    <p>${product.price}</p>
+                                    <p>Ksh.<span id="item_price">${product.price}</span>/=</p>
                                 </div>
                                 <form id="shipping-form" class="d-flex fd-col center g-2">
                                     <div class="form__group">
@@ -95,18 +95,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
                                     <div class="form__group price-section">
                                         <div class="quantity-container">
-                                            <button type="button" id='sub'>-</button>
+                                            <button type="button" class="quantity-control" id="sub">-</button>
                                             <input type="number" id="quantity" name="quantity" value="1" min="1" required>
-                                            <button type="button" id='add'>+</button>
+                                            <button type="button" class="quantity-control" id="add">+</button>
                                         </div>
                                         <div class="price-container d-flex right">
-                                            <p>ksh.</p>
+                                             <div class="display-info d-flex fd-row g-1 ">
+                                                <h3 class="d-flex blue fd-col center">Total</h3>
+                                                <h5 class="d-flex fd-col center">Ksh.</h5>
+                                            </div>
+                                                                    
                                             <input type="number" readonly id="price" name="price" value=${product.price}  required>
                                         </div>
                                         
                                     </div>
 
-                                    <button type="submit" class="btn submit">Submit</button>
+                                    <button type="submit" class="btn place-order submit">Place Order</button>
                                 </form>
 
                             </div>
@@ -120,6 +124,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     newValue = 1;
                 }
                 quantityInput.value = newValue;
+                let display = $('#price')
+                let price = $('#item_price').html()
+                let final = newValue * parseInt(price)
+                console.log(final)
+                display.val(final)
             }
             $('#add').on('click',()=>updateQuantity(+1))
             $('#sub').on('click',()=>updateQuantity(-1))
