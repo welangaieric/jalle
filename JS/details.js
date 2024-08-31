@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 isRequestSent = true;
                 
-                await checkOutIDCheck(response.checkOutId);
+                await checkOutIDCheck(response.checkOutId,payload);
                                                 
             }
             if(isRequestSent==='true')
@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }  
         }
                 
-        async function checkOutIDCheck(checkoutId) {
+        async function checkOutIDCheck(checkoutId,payload) {
             const pollInterval = 3000; // Poll every 3 seconds (adjust as needed)
             const maxAttempts = 10; // Set a maximum number of attempts
             let attempts = 0;
@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (response.result.ResultCode === '0') {
                         // console.log(response);
                         showSnackbar('Payment Verified');
-                        await acknowledge(); 
+                        await acknowledge(payload); 
                         conditionMet = true; // Set the flag to true when the condition is met
                     } else {
                         console.log(response.result);
@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 6200);
     
         }
-        function acknowledge (payload) {
+        async function acknowledge (payload) {
             try {
                 $.ajax({
                     type:'post',
@@ -283,7 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     data:payload,
                     success:function(result){
                         if(result.status===200){
-                            showSnackbar('Payment Has been recieved. Please wait for our call')
+                            showSnackbar('Payment Has been recieved. We will call you')
                             $('#acknowledge').addClass('show')
                         }
                     }
