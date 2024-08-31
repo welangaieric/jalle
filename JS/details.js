@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-
+    const adminId ='idxd55a5'
     // Function to grab the query parameter value from the URL
     function getQueryParameter(param) {
         const urlParams = new URLSearchParams(window.location.search);
@@ -105,12 +105,12 @@ document.addEventListener("DOMContentLoaded", function () {
                                                 <h5 class="d-flex fd-col center">Ksh.</h5>
                                             </div>
                                                                     
-                                            <input type="number" readonly id="price" name="price" value=${product.price}  required>
+                                            <input type="number" readonly id="price" name="amount" value=${product.price}  required>
                                         </div>
                                         
                                     </div>
 
-                                    <button type="submit" class="btn place-order submit">Place Order</button>
+                                    <button type="button" class="btn place-order submit">Place Order</button>
                                 </form>
 
                             </div>
@@ -127,15 +127,132 @@ document.addEventListener("DOMContentLoaded", function () {
                 let display = $('#price')
                 let price = $('#item_price').html()
                 let final = newValue * parseInt(price)
-                console.log(final)
                 display.val(final)
             }
             $('#add').on('click',()=>updateQuantity(+1))
             $('#sub').on('click',()=>updateQuantity(-1))
+            $('.place-order').on('click',(e)=>{
+                const numberRegex = /^\d{10}$/;
+                const phone = $('#phone');
+                const buyButton = $('#buy');
+                const phoneNumber = phone.val();
+                const payload = $('#Shipping-form').serialize()  
+                console.log(payload)                
+                if (!numberRegex.test(phoneNumber)) {
+                    phone.addClass('error');
+                    showSnackbar(`Invalid phone number`);
+                }
+                else{
+                    $('#Shipping-form').on('submit',(e)=>{
+                        e.preventDefault()
+                        makePurchase(payload)
+
+                    })
+                }
+            })
+           
             // Additional code to handle the product, e.g., display on the page
         })
         .catch((err) => {
             console.error(err); 
         });
+        
 
+
+
+        const makePurchase = async (payload)=>{
+            let isRequestSent = false;
+            try {
+                if (!isRequestSent) {
+                const response = await $.ajax({
+                    type: 'POST',
+                    url: `${serverUrl}/api/hotspot/send/${adminId}`,
+                    data: payload,
+                });
+        
+                console.log(response);
+        
+                if (response.status === 400) {
+                    
+                    return;
+                }
+                isRequestSent = true;
+                
+                await checkOutIDCheck(response.checkOutId);
+                modal.hide();  
+                                                
+            }
+            if(isRequestSent==='true')
+                window.location.reload();
+            } catch (err) {
+                showSnackbar(`Cannot Process Request At The Moment`);
+            }finally {
+                isRequestSent = false;  // Reset the flag after the request is completed
+            }  
+        }
+                
+        async function checkOutIDCheck(checkoutId) {
+            const pollInterval = 3000; // Poll every 3 seconds (adjust as needed)
+            const maxAttempts = 10; // Set a maximum number of attempts
+            let attempts = 0;
+            let conditionMet = false; // Flag to track whether the condition is met
+        
+            const checkStatus = async () => {
+                try {
+                    const response = await $.ajax({
+                        type: 'post',
+                        url: `${serverUrl}/api/hotspot/check/${checkoutId}/${adminId}`,
+                    });
+        
+                    if (response.result.ResultCode === '0') {
+                        // console.log(response);
+                        showSnackbar('Payment Verified');
+                        await acknowledge(); 
+                        conditionMet = true; // Set the flag to true when the condition is met
+                    } else {
+                        console.log(response.result);
+                        let data = response.result
+                        conditionMet = true;
+                        showSnackbar(data.ResultDesc);
+                        // Set the flag to true when the condition is met
+
+                    }
+                } catch (error) {
+                    console.error(error);
+                    showSnackbar('Retying');
+                        // Set the flag to true when the condition is met
+                        
+                }
+            };
+        
+            const poll = async () => {
+                if (!conditionMet && attempts < maxAttempts) {
+                    attempts++;
+        
+                    await checkStatus();
+        
+                    // Check again after a delay
+                    setTimeout(poll, pollInterval);
+                } else {
+                    
+                        showSnackbar('Cannot Verify Payment');
+                    
+                }
+            };
+        
+            // Start the polling process
+            await poll();
+        }
+        function showSnackbar(message = '', buttonText = '', event) {
+
+            const snackbar = document.querySelector('.mdc-snackbar');
+            document.querySelector('.mdc-snackbar__label')
+                .innerHTML = `${message}`;
+        
+            snackbar.classList.add('show');
+            setTimeout(function () {
+                snackbar.classList.remove("show");
+            }, 6200);
+    
+        }
 });
