@@ -848,6 +848,7 @@ footer h5{
     top: 10px;
     left: 10px;
     display: none;
+    z-index: 10001;
 }
 .show{
     display: flex;

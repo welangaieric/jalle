@@ -282,10 +282,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     url:`${serverUrl}/jalle/acknowledge`,
                     data:payload,
                     success:function(result){
+                        console.log(result)
                         if(result.status===200){
                             showSnackbar('Payment Has been recieved. We will call you')
-                            $('#acknowledge').addClass('show')
+                            $('.acknowledge').addClass('show')
                         }
+                    },
+                    error:function(err){
+                        console.log(err)
                     }
                 })
             } catch (error) {

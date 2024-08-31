@@ -4,6 +4,8 @@ $('.toggle').on('click',(e)=>{
 $('.close-btn').on('click',(e)=>{
     $('.nav-container').toggleClass('floating-open')
 })
+const serverUrl = 'https://konnektsmartlife.org'
+
 const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
   }
@@ -50,6 +52,45 @@ let preloader = $('#preloader');
       card.classList.add("stop"); // Initial class to ensure no animation at start
     });
   }
+  $('#book').on('submit',function(e){
+    e.preventDefault()
+    const numberRegex = /^\d{10}$/;
+    const phone = $('#phone');
+    const phoneNumber = phone.val();
+    if (!numberRegex.test(phoneNumber)) {
+        phone.addClass('error');
+        showSnackbar(`Invalid phone number`);
+        return
+    }
+    $.ajax({
+      type:'post',
+      url:`${serverUrl}/jalle/book`,
+      data:$(this).serialize(),
+      success:function(result){
+          console.log(result)
+          showSnackbar('Your request has been sent. We will call you')
+
+          if(result.status===200){
+              showSnackbar('Your request has been sent. We will call you')
+          }
+      },
+      error:function(err){
+          console.log(err)
+      }
+  })
+  })
+  function showSnackbar(message = '', buttonText = '', event) {
+
+    const snackbar = document.querySelector('.mdc-snackbar');
+    document.querySelector('.mdc-snackbar__label')
+        .innerHTML = `${message}`;
+
+    snackbar.classList.add('show');
+    setTimeout(function () {
+        snackbar.classList.remove("show");
+    }, 6200);
+
+}
   
   document.addEventListener("DOMContentLoaded", function () {
     // Call the function with the selector class of the elements you want to animate

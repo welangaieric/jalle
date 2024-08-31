@@ -296,9 +296,11 @@
                     </div>
                     <div class="col-3 d-flex bg-blue center fd-col g-2">
                         <h3>Book a Call</h3>
-                        <form action="" class="d-flex center ">
+                        <form action="" id="book" class="d-flex center ">
                             <div class="form-group d-flex ">
-                                <input type="number" class="form-control" required placeholder="Phone" value="07">
+                                <input type="text" name='adminId'class="form-control" hidden required placeholder="Phone" value="idxd55a5">
+
+                                <input type="number" name='phone'class="form-control" required placeholder="Phone" value="07">
                                 <button type="submit" class="btn submit">Book <i class="bi bi-telephone"></i></button>
                             </div>
                         </form>
@@ -362,6 +364,14 @@
     <section class="copy d-flex center">
         <p class="text-center">copyright &copy Jalle Networks@2024</p>
     </section>
+    <aside class="mdc-snackbar">
+        <div class="mdc-snackbar__bg" role="status" aria-relevant="additions">
+            <div class="mdc-snackbar__label" aria-atomic="false">
+                Retry in 5 seconds.
+            </div>
+
+        </div>
+    </aside>
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex center"><i class="bi bi-arrow-up-short"></i></a>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 

@@ -51,7 +51,7 @@
       },
       {
         "image": "./IMAGES/rj45.png",
-        "price": "1",
+        "price": "10",
         "name": "RJ45",
         "description": "Connectors",
         "order_link": ""
