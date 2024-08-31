@@ -75,11 +75,12 @@ document.addEventListener("DOMContentLoaded", function () {
                                         <input type="text" id="name" name="name" required placeholder=" ">
                                         <label for="name">Name</label>
                                     </div>
+                                        <input type="text" id="item" name="item" hidden value=${JSON.stringify(product.name)} required placeholder=" ">
 
                                     <div class="form-group">
                                         <input type="radio" id="pickup" name="shippingMethod" value="pickup" required>
                                         <label for="pickup">Pick Up</label>
-                                        <input type="radio" id="delivery" name="shippingMethod" value="delivery">
+                                        <input type="radio" checked id="delivery" name="shippingMethod" value="delivery">
                                         <label for="delivery">Delivery</label>
                                     </div>
                                     <div class="form-group">
@@ -158,6 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     const payload = {
                         adminId : adminId,
                         name: $('#name').val(),
+                        item:$('#item').val(),
                         shippingMethod: $('input[name="shippingMethod"]:checked').val(),
                         phone: $('#phone').val(),
                         location: $('#location').val(),

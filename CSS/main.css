@@ -745,15 +745,13 @@ footer h5{
 .price-container .quantity-container{
     width: 50%;
 }
-.price-container{
 
-}
 .place-order{
     height: 50px;
     border-radius: 8px;
 }
 #price{
-    width: 35%;
+    width: 40%;
     border: none;
     text-align: left;
     font-size: 1.5rem;
