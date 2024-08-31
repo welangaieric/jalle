@@ -253,11 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
                     // Check again after a delay
                     setTimeout(poll, pollInterval);
-                } else {
-                    
-                        showSnackbar('Cannot Verify Payment');
-                    
-                }
+                } 
             };
         
             // Start the polling process
