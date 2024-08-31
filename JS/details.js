@@ -95,9 +95,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                                     <div class="form__group price-section">
                                         <div class="quantity-container">
-                                            <button type="button" onclick="updateQuantity(-1)">-</button>
+                                            <button type="button" id='sub'>-</button>
                                             <input type="number" id="quantity" name="quantity" value="1" min="1" required>
-                                            <button type="button" onclick="updateQuantity(1)">+</button>
+                                            <button type="button" id='add'>+</button>
                                         </div>
                                         <div class="price-container d-flex right">
                                             <p>ksh.</p>
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                         
                                     </div>
 
-                                    <button type="submit">Submit</button>
+                                    <button type="submit" class="btn submit">Submit</button>
                                 </form>
 
                             </div>
