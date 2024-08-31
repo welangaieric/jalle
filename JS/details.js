@@ -48,11 +48,16 @@ document.addEventListener("DOMContentLoaded", function () {
                             <h2 class="text-black">Product Details</h2>
                         </div>
                         <div class="checkout d-flex jcs aic fd-col">
+                        
                             <div class="checkout-header d-flex center">
                                 <img src=${product.image} alt=${JSON.stringify(product.name)}>
                             </div>
                              <div class="checkout-body jcs aic g-2 d-flex fd-col ">
-                               
+                               <div class="acknowledge ">
+                                    <p>
+                                        Thank you for shopping with us
+                                    </p>
+                                </div>
                                 <div class="row strain d-flex left g-1">
                                     <h3 class="blue">Name:</h3>
                                     <p>${product.name}</p>
@@ -76,6 +81,9 @@ document.addEventListener("DOMContentLoaded", function () {
                                         <label for="pickup">Pick Up</label>
                                         <input type="radio" id="delivery" name="shippingMethod" value="delivery">
                                         <label for="delivery">Delivery</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <p>Addition of Ksh.200 on deliveries done within Turkana county for package less than 1KG. Additional weight costs ksh.400</p>
                                     </div>
 
                                     <div class="form__group">
@@ -114,7 +122,8 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </form>
 
                             </div>
-                        </div>`
+                        </div>
+                        `
             display.html(temp)
             function updateQuantity(change) {
                 const quantityInput = document.getElementById('quantity');
@@ -136,18 +145,28 @@ document.addEventListener("DOMContentLoaded", function () {
                 const phone = $('#phone');
                 const buyButton = $('#buy');
                 const phoneNumber = phone.val();
-                const payload = $('#Shipping-form').serialize()  
-                console.log(payload)                
                 if (!numberRegex.test(phoneNumber)) {
                     phone.addClass('error');
                     showSnackbar(`Invalid phone number`);
                 }
                 else{
-                    $('#Shipping-form').on('submit',(e)=>{
+                    $('#Shipping-form').on('submit',function(e){
                         e.preventDefault()
-                        makePurchase(payload)
+                        
 
                     })
+                    const payload = {
+                        adminId : adminId,
+                        name: $('#name').val(),
+                        shippingMethod: $('input[name="shippingMethod"]:checked').val(),
+                        phone: $('#phone').val(),
+                        location: $('#location').val(),
+                        additionalInfo: $('#additional-info').val(),
+                        quantity: $('#quantity').val(),
+                        amount: $('#price').val()
+                    };
+                    makePurchase(payload)
+                    showSnackbar(`Payment request has been sent to ${phoneNumber}`)
                 }
             })
            
@@ -158,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         
 
-
+        const serverUrl = 'https://konnektsmartlife.org'
 
         const makePurchase = async (payload)=>{
             let isRequestSent = false;
@@ -179,7 +198,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 isRequestSent = true;
                 
                 await checkOutIDCheck(response.checkOutId);
-                modal.hide();  
                                                 
             }
             if(isRequestSent==='true')
@@ -254,5 +272,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 snackbar.classList.remove("show");
             }, 6200);
     
+        }
+        function acknowledge (payload) {
+            try {
+                $.ajax({
+                    type:'post',
+                    url:`${serverUrl}/jalle/acknowledge`,
+                    data:payload,
+                    success:function(result){
+                        if(result.status===200){
+                            showSnackbar('Payment Has been recieved. Please wait for our call')
+                            $('#acknowledge').addClass('show')
+                        }
+                    }
+                })
+            } catch (error) {
+                
+            }
         }
 });
