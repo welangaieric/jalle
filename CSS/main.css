@@ -17,6 +17,7 @@ a{
     text-decoration: none;
 }
 .box {
+
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -435,7 +436,7 @@ img{
 }
 .content-body h3{
     width: 100%;
-    color: var(--teal);
+    color: var(--black);
 
 }
 .content-body p{
