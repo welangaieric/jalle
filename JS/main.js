@@ -27,29 +27,7 @@ let preloader = $('#preloader');
     window.addEventListener('load', toggleBacktotop)
     onscroll(document, toggleBacktotop)
   }
-  function addAnimation(selector) {
-    const boxes = document.querySelectorAll('.box');
 
-    const observerOptions = {
-        root: null, // viewport
-        rootMargin: '0px',
-        threshold: 0.1 // Trigger when 10% of the element is visible
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Stop observing after it becomes visible
-            }
-        });
-    }, observerOptions);
-  
-    // Observe each card
-    boxes.forEach(box => {
-      observer.observe(box);
-  });
-  }
   $('#book').on('submit',function(e){
     e.preventDefault()
     const numberRegex = /^\d{10}$/;
@@ -100,7 +78,7 @@ let preloader = $('#preloader');
       success: function(result) {
         let display = $('.products')
         result.forEach((item)=>{
-          let temp=`<div class="product box d-flex center fd-col">
+          let temp=`<div class="product boxan d-flex center fd-col">
                         <div class="product-image d-flex center ">
                             <img src=${item.image} alt=${JSON.stringify(item.name)}>
                         </div>
@@ -117,7 +95,29 @@ let preloader = $('#preloader');
         })
       }
     })
-
+    function addAnimation(selector) {
+      const boxes = document.querySelectorAll('.box');
+  
+      const observerOptions = {
+          root: null, // viewport
+          rootMargin: '0px',
+          threshold: 0.1 // Trigger when 10% of the element is visible
+      };
+  
+      const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('visible');
+                  observer.unobserve(entry.target); // Stop observing after it becomes visible
+              }
+          });
+      }, observerOptions);
+    
+      // Observe each card
+      boxes.forEach(box => {
+        observer.observe(box);
+    });
+    }
   });
   
   
