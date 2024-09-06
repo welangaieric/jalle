@@ -16,6 +16,16 @@ li{
 a{
     text-decoration: none;
 }
+.box {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.box.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 .row{
     width: 100%;
     display: flex;
